@@ -15,7 +15,10 @@ namespace SecureRandom {
     make = (
         let handle = *open_file(Path::parse("/dev/urandom").as_some, "r");
         pure $ SecureRandom {
-            data: Destructor::make(handle, _unsafe_close)
+            data: Destructor::make(handle, |handle|
+                eval *handle.close_file;
+                pure $ handle
+            )
         }
     );
 
@@ -23,7 +26,7 @@ namespace SecureRandom {
     generate_bytes: I64 -> SecureRandom -> IOFail (SecureRandom, Array U8);
     generate_bytes = |size, secure_random| (
         assert_lazy(|_| "invalid size", size >= 0) $ |_|
-        let bytes = *secure_random.@data.borrow(|handle| read_n_bytes(handle, size));
+        let bytes = *secure_random.@data.borrow_io(|handle| read_n_bytes(handle, size).to_result).from_io_result;
         pure $ (secure_random, bytes)
     );
 }

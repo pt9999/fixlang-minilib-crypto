@@ -26,6 +26,7 @@ files = [
     "tests/crypto/aes_test.fix",
     "tests/crypto/hmac_test.fix",
     "tests/crypto/md5_test.fix",
+    "tests/crypto/secure_random_test.fix",
     "tests/crypto/sha1_test.fix",
     "tests/crypto/sha256_test.fix",
     "tests/crypto/sha512_test.fix",

@@ -6,6 +6,7 @@ import AesGcmTest;
 import AesTest;
 import HmacTest;
 import Md5Test;
+import SecureRandomTest;
 import Sha1Test;
 import Sha256Test;
 import Sha512Test;
@@ -16,6 +17,7 @@ testsuite = [
     ("AesTest", AesTest::main),
     ("HmacTest", HmacTest::main),
     ("Md5Test", Md5Test::main),
+    ("SecureRandomTest", SecureRandomTest::main),
     ("Sha1Test", Sha1Test::main),
     ("Sha256Test", Sha256Test::main),
     ("Sha512Test", Sha512Test::main),
