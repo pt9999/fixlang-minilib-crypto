@@ -1,13 +1,22 @@
-proj_file_hash = "68123a8f3304469d2ae3fdbde510b0bc"
+proj_file_hash = "559f55eb1c9ae7b3d7c8060ac2653474"
+
+[[dependencies]]
+name = "minilib-binary"
+version = "0.1.5"
+path = ".fixlang/deps/minilib-binary_0.1.5"
+
+[dependencies.git]
+repo = "https://github.com/pt9999/fixlang-minilib-binary.git"
+rev = "a71138c2b1663f8aeba60c92b1f746a301443aad"
 
 [[dependencies]]
 name = "minilib-common"
-version = "0.1.5"
-path = ".fixlang/deps/minilib-common_0.1.5"
+version = "0.2.0"
+path = ".fixlang/deps/minilib-common_0.2.0"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-common.git"
-rev = "6828c6fb49511640162a672d55730bf6c93a32e8"
+rev = "64d2c9f324a2a64e6f6e313f3b845e85963420bc"
 
 [[dependencies]]
 name = "character"
@@ -28,6 +37,15 @@ repo = "https://github.com/tttmmmyyyy/fixlang-time.git"
 rev = "0df92cf1c3ffc148d658c1a554c94105aef13520"
 
 [[dependencies]]
+name = "minilib-random"
+version = "0.1.2"
+path = ".fixlang/deps/minilib-random_0.1.2"
+
+[dependencies.git]
+repo = "https://github.com/pt9999/fixlang-minilib-random.git"
+rev = "9504ba73f2a29b52bac5f5a9f7d889523893918f"
+
+[[dependencies]]
 name = "random"
 version = "1.0.0"
 path = ".fixlang/deps/random_1.0.0"
@@ -37,10 +55,10 @@ repo = "https://github.com/tttmmmyyyy/fixlang-random.git"
 rev = "b802af50726199a6dc815bef1cc64075cd4cbd2d"
 
 [[dependencies]]
-name = "minilib-binary"
-version = "0.1.5"
-path = ".fixlang/deps/minilib-binary_0.1.5"
+name = "minilib-monad"
+version = "0.2.0"
+path = ".fixlang/deps/minilib-monad_0.2.0"
 
 [dependencies.git]
-repo = "https://github.com/pt9999/fixlang-minilib-binary.git"
-rev = "a71138c2b1663f8aeba60c92b1f746a301443aad"
+repo = "https://github.com/pt9999/fixlang-minilib-monad.git"
+rev = "c0fcf93f1b4770be4cda4523e44f50f44d5e0a08"

@@ -45,3 +45,8 @@ name = "minilib-binary"
 version = "*"
 # path = "../fixlang-minilib-binary"
 git = { url = "https://github.com/pt9999/fixlang-minilib-binary.git" }
+
+[[dependencies]]
+name = "minilib-random"
+version = "*"
+git = { url = "https://github.com/pt9999/fixlang-minilib-random.git" }
