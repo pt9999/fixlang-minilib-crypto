@@ -38,12 +38,12 @@ rev = "0df92cf1c3ffc148d658c1a554c94105aef13520"
 
 [[dependencies]]
 name = "minilib-random"
-version = "0.1.2"
-path = ".fixlang/deps/minilib-random_0.1.2"
+version = "0.1.5"
+path = ".fixlang/deps/minilib-random_0.1.5"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-random.git"
-rev = "9504ba73f2a29b52bac5f5a9f7d889523893918f"
+rev = "8b19000fae4e33aa674613366089b46819b10afb"
 
 [[dependencies]]
 name = "random"
@@ -56,9 +56,9 @@ rev = "b802af50726199a6dc815bef1cc64075cd4cbd2d"
 
 [[dependencies]]
 name = "minilib-monad"
-version = "0.2.0"
-path = ".fixlang/deps/minilib-monad_0.2.0"
+version = "0.2.1"
+path = ".fixlang/deps/minilib-monad_0.2.1"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-monad.git"
-rev = "c0fcf93f1b4770be4cda4523e44f50f44d5e0a08"
+rev = "990c643a0d5a75eb6a82adf37b318c3dcfe85a60"
