@@ -39,14 +39,6 @@ If a byte sequence is encoded to a bit string, MSB of the first byte becomes the
 
 ## `namespace Minilib.Crypto.AES.GCM::Block`
 
-### `@hi : Minilib.Crypto.AES.GCM::Block -> Std::U64`
-
-Retrieves the field `hi` from a value of `Block`.
-
-### `@lo : Minilib.Crypto.AES.GCM::Block -> Std::U64`
-
-Retrieves the field `lo` from a value of `Block`.
-
 ### `_GCTR : (Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block) -> Minilib.Crypto.AES.GCM::Block -> Std::Array Std::U8 -> Std::Array Std::U8`
 
 Calculates GCTR() function.
@@ -95,14 +87,6 @@ Shifts a 128-bit block to right by 1 bit.
 
 A zero block.
 
-### `act_hi : [f : Std::Functor] (Std::U64 -> f Std::U64) -> Minilib.Crypto.AES.GCM::Block -> f Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by applying a functorial action to field `hi`.
-
-### `act_lo : [f : Std::Functor] (Std::U64 -> f Std::U64) -> Minilib.Crypto.AES.GCM::Block -> f Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by applying a functorial action to field `lo`.
-
 ### `get_block_be : Std::I64 -> Std::Array Std::U8 -> Minilib.Crypto.AES.GCM::Block`
 
 `buf.get_block_be(i)` reads a 128 bit block in big endian at position `i` in array `buf`.
@@ -111,25 +95,9 @@ Updates a value of `Block` by applying a functorial action to field `lo`.
 
 `Block::make(hi, lo)` creates a 128 bit block.
 
-### `mod_hi : (Std::U64 -> Std::U64) -> Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by applying a function to field `hi`.
-
-### `mod_lo : (Std::U64 -> Std::U64) -> Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by applying a function to field `lo`.
-
 ### `set_block_be : Std::I64 -> Minilib.Crypto.AES.GCM::Block -> Std::Array Std::U8 -> Std::Array Std::U8`
 
 `buf.set_block_be(i, block)` writes a 128 bit block in big endian at position `i` in array `buf`.
-
-### `set_hi : Std::U64 -> Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by setting field `hi` to a specified one.
-
-### `set_lo : Std::U64 -> Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
-
-Updates a value of `Block` by setting field `lo` to a specified one.
 
 ## `namespace Minilib.Crypto.AES.GCM::CLMul`
 
