@@ -5,7 +5,7 @@ authors = ["pt9999"]
 license = "MIT"
 
 [build]
-opt_level = "separated"
+opt_level = "basic"
 files = [
     "lib/crypto/aes.fix",
     "lib/crypto/aes/aes_gcm.fix",
@@ -20,7 +20,7 @@ files = [
 ]
 
 [build.test]
-opt_level = "separated"
+opt_level = "basic"
 files = [
     "tests/test.fix",
     "tests/crypto/aes/aes_gcm_test.fix",
