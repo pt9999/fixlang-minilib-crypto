@@ -23,7 +23,7 @@ test_sha384_digest = (
             ("random_567", make_random_bytes(100000, 567), "2bf9d6970f0b47d2dce007daa69bd26270820a5352372e3780ca3ddcc37d5bfb9a3b21eca931b8188c45f35026a1fcfc"),
         ],
         |(name, bytes, expected)|
-        //eval *write_file_bytes(Path::parse("tmp." + name).as_some, bytes);
+        //eval *write_file_bytes("tmp." + name, bytes);
         let actual = SHA384::digest(bytes).to_string_hex;
         assert_equal(name, expected, actual)
     )
@@ -39,7 +39,7 @@ test_sha512_digest = (
             ("random_567", make_random_bytes(100000, 567), "5e715bfb8f4ef983b85dc1d72908e95452879cc57175c178744bd7d2fe5cc72b8a4309703c2397d4544c81739a0084963bea44d69a6ca5411df9cefa06b5b507"),
         ],
         |(name, bytes, expected)|
-        //eval *write_file_bytes(Path::parse("tmp." + name).as_some, bytes);
+        //eval *write_file_bytes("tmp." + name, bytes);
         let actual = SHA512::digest(bytes).to_string_hex;
         assert_equal(name, expected, actual)
     )

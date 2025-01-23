@@ -23,7 +23,7 @@ test_digest = (
             ("random_567", make_random_bytes(100000, 567), "93e1786a485e1dcfa6b46b98069f3b93")
         ],
         |(name, bytes, expected)|
-        //let _ = *write_file_bytes(Path::parse("tmp." + name).as_some, bytes);
+        //let _ = *write_file_bytes("tmp." + name, bytes);
         let actual = MD5::digest(bytes).to_string_hex;
         assert_equal("eq", expected, actual)
     )
