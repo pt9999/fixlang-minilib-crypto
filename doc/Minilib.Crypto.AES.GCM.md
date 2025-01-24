@@ -143,7 +143,7 @@ get the authentication tag
 Converts an AES structure to a cipher.
 NOTE: aes.decrypt_block will not be used in AES-GCM.
 
-### `gcm_ad : (Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block) -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::I64 -> Std::Result Std::String (Std::Array Std::U8)`
+### `gcm_ad : (Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block) -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::Array Std::U8 -> Std::I64 -> Std::Result Std::ErrMsg (Std::Array Std::U8)`
 
 Performs authenticated decryption.
 Input:
