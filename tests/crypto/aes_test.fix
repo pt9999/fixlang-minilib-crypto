@@ -26,7 +26,7 @@ test_key_expansion_128 = (
     let w = aes._key_expansion(key);
     /*
     let _ = *Iterator::range(0, 4 * (aes._get_number_of_rounds + 1)).fold_m(
-        (), |_, i|
+        (), |i, _|
         println((i, w.@(i).to_string_hex).format("w[{}] = {}")).lift
     );
     */

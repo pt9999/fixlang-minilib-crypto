@@ -158,7 +158,7 @@ namespace AES {
     _inv_sbox_table: Array U8;
     _inv_sbox_table = (
         Iterator::range(0, 256).fold(
-            Array::fill(256, 0_U8), |arr, i|
+            Array::fill(256, 0_U8), |i, arr|
             let x = i.to_U8;
             let y = _sbox_table.@(i);
             arr.set(y.to_I64, x)
