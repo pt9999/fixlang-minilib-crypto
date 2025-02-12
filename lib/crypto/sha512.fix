@@ -109,7 +109,7 @@ finalize = |sha512| (
     //let digest = U8_U32::convert(sha512.@hash, ByteOrder::big_endian());
     let hash = sha512.@hash;
     let digest = Iterator::range(0, hash.get_size).fold(
-        Array::fill(hash.get_size * 8, 0_U8), |bytes, i|
+        Array::fill(hash.get_size * 8, 0_U8), |i, bytes|
         bytes.set_u64_be(i * 8, hash.@(i))
     );
     digest
