@@ -43,7 +43,7 @@ If a byte sequence is encoded to a bit string, MSB of the first byte becomes the
 
 Calculates GCTR() function.
 
-### `_GHASH : Minilib.Crypto.AES.GCM::Block -> Std::Iterator Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
+### `_GHASH : Minilib.Crypto.AES.GCM::Block -> Std::Iterator::DynIterator Minilib.Crypto.AES.GCM::Block -> Minilib.Crypto.AES.GCM::Block`
 
 Calculates GHASH() function.
 
@@ -56,7 +56,7 @@ This is the primitive polynomial of GF(2^128).
 
 Calculates bitwise XOR of two 128-bit blocks.
 
-### `_bytes_to_blocks : Std::Array Std::U8 -> Std::Iterator Minilib.Crypto.AES.GCM::Block`
+### `_bytes_to_blocks : Std::Array Std::U8 -> Std::Iterator::DynIterator Minilib.Crypto.AES.GCM::Block`
 
 Converts a byte array to an iterator of 128-bit blocks.
 
