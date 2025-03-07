@@ -1,17 +1,21 @@
-# `module Minilib.Crypto.HMAC.HmacSHA256`
+# Minilib.Crypto.HMAC.HmacSHA256
+
+Defined in minilib-crypto@0.5.1
 
 An HMAC instance that uses SHA256 as a hash function.
 
-# Types and aliases
+## Values
 
-# Traits and aliases
+### namespace Minilib.Crypto.HMAC.HmacSHA256
 
-# Trait implementations
+#### hmac_sha256
 
-# Values
-
-## `namespace Minilib.Crypto.HMAC.HmacSHA256`
-
-### `hmac_sha256 : Minilib.Crypto.HMAC::HMAC`
+Type: `Minilib.Crypto.HMAC::HMAC`
 
 An HMAC instance that uses SHA256 as a hash function.
+
+## Types and aliases
+
+## Traits and aliases
+
+## Trait implementations

@@ -1,4 +1,6 @@
-# `module Minilib.Crypto.SHA512`
+# Minilib.Crypto.SHA512
+
+Defined in minilib-crypto@0.5.1
 
 SHA-512 secure hash function.
 
@@ -10,100 +12,148 @@ made in the Applicability Clause. There are no changes to the technical specific
 FIPS 180-4 (2015):
 http://dx.doi.org/10.6028/NIST.FIPS.180-4
 
-# Types and aliases
+## Values
 
-## `namespace Minilib.Crypto.SHA512`
+### namespace Minilib.Crypto.SHA512
 
-### `type SHA512 = unbox struct { ...fields... }`
+#### _bit_not
 
-SHA-512 hasher.
-Usually it is sufficient to simply call `SHA512:digest(bytes)` without using this structure.
-
-#### field `hash : Std::Array Std::U64`
-
-#### field `msglen : Std::U64`
-
-#### field `msgbuf : Std::Array Std::U8`
-
-# Traits and aliases
-
-# Trait implementations
-
-# Values
-
-## `namespace Minilib.Crypto.SHA512`
-
-### `_bit_not : Std::U64 -> Std::U64`
+Type: `Std::U64 -> Std::U64`
 
 2.2.2 Symbols and Operations
 bitwise complement
 
-### `_ch : Std::U64 -> Std::U64 -> Std::U64 -> Std::U64`
+#### _ch
+
+Type: `Std::U64 -> Std::U64 -> Std::U64 -> Std::U64`
 
 4.1.3 SHA-384, SHA-512, SHA-512/224 and SHA-512/256 Functions
 
-### `_init_hash_sha384 : Std::Array Std::U64`
+#### _init_hash_sha384
+
+Type: `Std::Array Std::U64`
 
 5.3 Setting the Initial Hash Value (H(0))
 5.3.4 SHA-384
 
-### `_init_hash_sha512 : Std::Array Std::U64`
+#### _init_hash_sha512
+
+Type: `Std::Array Std::U64`
 
 5.3.5 SHA-512
 
-### `_k : Std::Array Std::U64`
+#### _k
 
-### `_large_sigma_0 : Std::U64 -> Std::U64`
+Type: `Std::Array Std::U64`
 
-### `_large_sigma_1 : Std::U64 -> Std::U64`
+#### _large_sigma_0
 
-### `_maj : Std::U64 -> Std::U64 -> Std::U64 -> Std::U64`
+Type: `Std::U64 -> Std::U64`
 
-### `_rotl : Std::U64 -> Std::U64 -> Std::U64`
+#### _large_sigma_1
+
+Type: `Std::U64 -> Std::U64`
+
+#### _maj
+
+Type: `Std::U64 -> Std::U64 -> Std::U64 -> Std::U64`
+
+#### _rotl
+
+Type: `Std::U64 -> Std::U64 -> Std::U64`
 
 rotate left
 
-### `_rotr : Std::U64 -> Std::U64 -> Std::U64`
+#### _rotr
+
+Type: `Std::U64 -> Std::U64 -> Std::U64`
 
 rotate right
 
-### `_shr : Std::U64 -> Std::U64 -> Std::U64`
+#### _shr
+
+Type: `Std::U64 -> Std::U64 -> Std::U64`
 
 shift right
 
-### `_small_sigma_0 : Std::U64 -> Std::U64`
+#### _small_sigma_0
 
-### `_small_sigma_1 : Std::U64 -> Std::U64`
+Type: `Std::U64 -> Std::U64`
 
-### `_update_hash : Std::Array Std::U64 -> Std::Array Std::U64 -> Std::Array Std::U64`
+#### _small_sigma_1
+
+Type: `Std::U64 -> Std::U64`
+
+#### _update_hash
+
+Type: `Std::Array Std::U64 -> Std::Array Std::U64 -> Std::Array Std::U64`
 
 6.2.2 SHA-512 Hash Computation
 
-### `_update_inner : Std::Array Std::U8 -> Std::U64 -> Minilib.Crypto.SHA512::SHA512 -> Minilib.Crypto.SHA512::SHA512`
+#### _update_inner
+
+Type: `Std::Array Std::U8 -> Std::U64 -> Minilib.Crypto.SHA512::SHA512 -> Minilib.Crypto.SHA512::SHA512`
 
 `sha512._update_inner(input, msglen_inc)` updates the message buffer with input.
 And it increments the message length by `msglen_inc`.
 When the message buffer is full (128 bytes), it updates hash with the message
 and clears the messsage buffer.
 
-### `digest : Std::Array Std::U8 -> Std::Array Std::U8`
+#### digest
+
+Type: `Std::Array Std::U8 -> Std::Array Std::U8`
 
 `SHA512::digest(bytes)` computes SHA-512 secure hash function of `bytes`.
 
-### `empty : Minilib.Crypto.SHA512::SHA512`
+#### empty
+
+Type: `Minilib.Crypto.SHA512::SHA512`
 
 An empty SHA-512 hasher.
 
-### `finalize : Minilib.Crypto.SHA512::SHA512 -> Std::Array Std::U8`
+#### finalize
+
+Type: `Minilib.Crypto.SHA512::SHA512 -> Std::Array Std::U8`
 
 `sha512.finalize` retrieves a final SHA-512 hash value.
 
-### `update : Std::Array Std::U8 -> Minilib.Crypto.SHA512::SHA512 -> Minilib.Crypto.SHA512::SHA512`
+#### update
+
+Type: `Std::Array Std::U8 -> Minilib.Crypto.SHA512::SHA512 -> Minilib.Crypto.SHA512::SHA512`
 
 `sha512.update(bytes)` processes `bytes`, and updates its internal state.
 
-## `namespace Minilib.Crypto.SHA512::SHA384`
+### namespace Minilib.Crypto.SHA512::SHA384
 
-### `digest : Std::Array Std::U8 -> Std::Array Std::U8`
+#### digest
+
+Type: `Std::Array Std::U8 -> Std::Array Std::U8`
 
 `SHA384::digest(bytes)` computes SHA-384 secure hash function of `bytes`.
+
+## Types and aliases
+
+### namespace Minilib.Crypto.SHA512
+
+#### SHA512
+
+Defined as: `type SHA512 = unbox struct { ...fields... }`
+
+SHA-512 hasher.
+Usually it is sufficient to simply call `SHA512:digest(bytes)` without using this structure.
+
+##### field `hash`
+
+Type: `Std::Array Std::U64`
+
+##### field `msglen`
+
+Type: `Std::U64`
+
+##### field `msgbuf`
+
+Type: `Std::Array Std::U8`
+
+## Traits and aliases
+
+## Trait implementations
