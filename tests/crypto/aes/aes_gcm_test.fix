@@ -38,10 +38,10 @@ test_aes_gcmvs = (
         let aes = AES::make(key);
         let cipher = _to_cipher(aes);
         let (c, t) = gcm_ae(cipher, iv, plaintext, auth_data, len_t);
-        let _ = *assert_equal("ciphertext", ciphertext, c);
-        let _ = *assert_equal("tag", tag, t);
+        assert_equal("ciphertext", ciphertext, c);;
+        assert_equal("tag", tag, t);;
         let res = gcm_ad(cipher, iv, c, auth_data, t, len_t);
-        let _ = *assert_equal("plaintext", ok $ plaintext, res);
+        assert_equal("plaintext", ok $ plaintext, res);;
         pure()
     )
 );
