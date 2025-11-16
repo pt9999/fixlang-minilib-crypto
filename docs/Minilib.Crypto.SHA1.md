@@ -1,6 +1,6 @@
 # Minilib.Crypto.SHA1
 
-Defined in minilib-crypto@0.5.1
+Defined in minilib-crypto@0.5.2
 
 SHA-1 secure hash function.
 
@@ -15,65 +15,6 @@ http://dx.doi.org/10.6028/NIST.FIPS.180-4
 ## Values
 
 ### namespace Minilib.Crypto.SHA1
-
-#### _bit_not
-
-Type: `Std::U32 -> Std::U32`
-
-2.2.2 Symbols and Operations
-bitwise complement
-
-#### _f
-
-Type: `Std::I64 -> Std::U32 -> Std::U32 -> Std::U32 -> Std::U32`
-
-4.1.1 SHA-1 Functions
-
-#### _init_hash
-
-Type: `Std::Array Std::U32`
-
-5.3 Setting the Initial Hash Value (H(0))
-5.3.1 SHA-1
-
-#### _k
-
-Type: `Std::I64 -> Std::U32`
-
-4.2.1 SHA-1 Constants
-
-#### _rotl
-
-Type: `Std::U32 -> Std::U32 -> Std::U32`
-
-rotate left
-
-#### _rotr
-
-Type: `Std::U32 -> Std::U32 -> Std::U32`
-
-rotate right
-
-#### _shr
-
-Type: `Std::U32 -> Std::U32 -> Std::U32`
-
-shift right
-
-#### _update_hash
-
-Type: `Std::Array Std::U32 -> Std::Array Std::U32 -> Std::Array Std::U32`
-
-6.1.2 SHA-1 Hash Computation
-
-#### _update_inner
-
-Type: `Std::Array Std::U8 -> Std::U64 -> Minilib.Crypto.SHA1::SHA1 -> Minilib.Crypto.SHA1::SHA1`
-
-`sha1._update_inner(input, msglen_inc)` updates the message buffer with input.
-And it increments the message length by `msglen_inc`.
-When the message buffer is full (64 bytes), it updates hash with the message
-and clears the messsage buffer.
 
 #### digest
 

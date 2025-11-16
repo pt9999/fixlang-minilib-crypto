@@ -1,6 +1,6 @@
 # Minilib.Crypto.HMAC
 
-Defined in minilib-crypto@0.5.1
+Defined in minilib-crypto@0.5.2
 
 The Keyed-Hash Message Authentication Code (HMAC)
 
@@ -11,10 +11,6 @@ https://doi.org/10.6028/NIST.FIPS.198-1
 ## Values
 
 ### namespace Minilib.Crypto.HMAC::HMAC
-
-#### _hash
-
-Type: `Std::Array Std::U8 -> Minilib.Crypto.HMAC::HMAC -> Std::Array Std::U8`
 
 #### digest
 
