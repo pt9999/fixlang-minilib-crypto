@@ -1,6 +1,6 @@
 # Minilib.Crypto.HMAC
 
-Defined in minilib-crypto@0.5.4
+Defined in minilib-crypto@0.5.5
 
 The Keyed-Hash Message Authentication Code (HMAC)
 
