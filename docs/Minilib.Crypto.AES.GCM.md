@@ -1,6 +1,6 @@
 # Minilib.Crypto.AES.GCM
 
-Defined in minilib-crypto@0.5.6
+Defined in minilib-crypto@0.5.7
 
 Galois/Counter Mode (GCM) for AES
 

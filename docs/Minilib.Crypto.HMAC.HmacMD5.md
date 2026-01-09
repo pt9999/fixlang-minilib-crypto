@@ -1,6 +1,6 @@
 # Minilib.Crypto.HMAC.HmacMD5
 
-Defined in minilib-crypto@0.5.6
+Defined in minilib-crypto@0.5.7
 
 An HMAC instance that uses MD5 as a hash function.
 
