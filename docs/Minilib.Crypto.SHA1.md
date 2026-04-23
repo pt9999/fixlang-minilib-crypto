@@ -1,6 +1,6 @@
 # Minilib.Crypto.SHA1
 
-Defined in minilib-crypto@0.6.1
+Defined in minilib-crypto@0.6.2
 
 SHA-1 secure hash function.
 
