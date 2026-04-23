@@ -1,4 +1,4 @@
-proj_file_hash = "fdf79f36047ed9349e317f29306b7620"
+proj_file_hash = "fdc50b43692581aac121b0a905c19d6b"
 
 [[dependencies]]
 name = "character"
@@ -11,21 +11,21 @@ rev = "fd75a6634ec0c919f2d1703112d25da9a3c2346e"
 
 [[dependencies]]
 name = "minilib-binary"
-version = "0.6.1"
-path = ".fixlang/deps/minilib-binary_0.6.1"
+version = "0.6.2"
+path = ".fixlang/deps/minilib-binary_0.6.2"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-binary.git"
-rev = "34535107f07cd15ebc99e9b8377433988d692ea9"
+rev = "e6e831a77b80506e01338844b4cb0d6c86267226"
 
 [[dependencies]]
 name = "minilib-common"
-version = "0.12.4"
-path = ".fixlang/deps/minilib-common_0.12.4"
+version = "0.13.0"
+path = ".fixlang/deps/minilib-common_0.13.0"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-common.git"
-rev = "a7e6aa2778fd6678e51f454b59aca90f0bb0898c"
+rev = "d8af3860a44a3ab19ddf6a39c809b959821cbe98"
 
 [[dependencies]]
 name = "time"

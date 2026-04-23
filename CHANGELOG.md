@@ -1,3 +1,7 @@
+## 0.6.2
+### Changed
+- Removed indirect dependencies.
+
 ## 0.6.0
 ### Changed
 - fixproj.toml:
