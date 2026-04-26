@@ -38,12 +38,12 @@ rev = "2efb940bb8d7c7350305bac87b7f98611e97bfed"
 
 [[dependencies]]
 name = "minilib-random"
-version = "0.7.2"
-path = ".fixlang/deps/minilib-random_0.7.2"
+version = "0.7.3"
+path = ".fixlang/deps/minilib-random_0.7.3"
 
 [dependencies.git]
 repo = "https://github.com/pt9999/fixlang-minilib-random.git"
-rev = "c2de00442f1a4659a5d12f5beaf2fbb14443f41a"
+rev = "4f53be4765f3d01f35b77a4e58fafe29bc5e485f"
 
 [[dependencies]]
 name = "random"
