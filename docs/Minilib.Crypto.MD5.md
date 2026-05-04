@@ -1,6 +1,6 @@
 # Minilib.Crypto.MD5
 
-Defined in minilib-crypto@0.6.3
+Defined in minilib-crypto@0.6.4
 
 MD5 secure hash function.
 
