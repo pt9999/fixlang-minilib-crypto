@@ -54,7 +54,7 @@ empty = SHA512 {
 // `sha512.update(bytes)` processes `bytes`, and updates its internal state.
 update: Array U8 -> SHA512 -> SHA512;
 update = |bytes, sha512| (
-    sha512._update_inner(bytes, bytes.get_size.to_U64)
+    sha512._update_inner(bytes, bytes.@size.u64)
 );
 
 // `sha512._update_inner(input, msglen_inc)` updates the message buffer with input.
@@ -63,7 +63,7 @@ update = |bytes, sha512| (
 // and clears the messsage buffer.
 _update_inner: Array U8 -> U64 -> SHA512 -> SHA512;
 _update_inner = |input, msglen_inc, sha512| (
-    let n_input = input.get_size;
+    let n_input = input.@size;
     let n_msgbuf = 128;
     let sha512 = loop(
         (sha512, 0), |(sha512, i_input)|
@@ -72,12 +72,12 @@ _update_inner = |input, msglen_inc, sha512| (
         };
         let sha512 = sha512.mod_msgbuf(push_back(input.@(i_input)));
         let i_input = i_input + 1;
-        if sha512.@msgbuf.get_size < n_msgbuf {
+        if sha512.@msgbuf.@size < n_msgbuf {
             continue $ (sha512, i_input)
         };
         //let message = ByteBuffer::make(sha512.@msgbuf, ByteOrder::big_endian()).to_u64_array;
         //let message = U32_U8::convert(sha512.@msgbuf, ByteOrder::big_endian());
-        let message = Array::from_map(sha512.@msgbuf.get_size / 8, |i| sha512.@msgbuf.get_u64_be(i * 8));
+        let message = Array::from_map(sha512.@msgbuf.@size / 8, |i| sha512.@msgbuf.get_u64_be(i * 8));
         let sha512 = sha512.mod_hash(_update_hash(message));
         let sha512 = sha512.mod_msgbuf(truncate(0));
         continue $ (sha512, i_input)
@@ -93,7 +93,7 @@ finalize = |sha512| (
     let sha512 = sha512._update_inner([0x80_U8], 0_U64);
     let sha512 = loop(
         sha512, |sha512|
-        if sha512.@msgbuf.get_size == 896/8 {
+        if sha512.@msgbuf.@size == 896/8 {
             break $ sha512
         };
         continue $ sha512._update_inner([0x00_U8], 0_U64)
@@ -103,13 +103,13 @@ finalize = |sha512| (
     let buf = buf.set_u64(8, msglen_bits);
     let sha512 = sha512._update_inner(buf.to_u8_array, 0_U64);
 
-    assert_lazy(|_| "padding failed", sha512.@msgbuf.get_size == 0) $ |_|
+    assert_lazy(|_| "padding failed", sha512.@msgbuf.@size == 0) $ |_|
 
     //let digest = ByteBuffer::from_u64_array(sha512.@hash, ByteOrder::big_endian()).to_u8_array;
     //let digest = U8_U32::convert(sha512.@hash, ByteOrder::big_endian());
     let hash = sha512.@hash;
-    let digest = Iterator::range(0, hash.get_size).fold(
-        Array::fill(hash.get_size * 8, 0_U8), |i, bytes|
+    let digest = Iterator::range(0, hash.@size).fold(
+        Array::fill(hash.@size * 8, 0_U8), |i, bytes|
         bytes.set_u64_be(i * 8, hash.@(i))
     );
     digest
@@ -230,8 +230,8 @@ _init_hash_sha512 = [
 // 6.2.2 SHA-512 Hash Computation
 _update_hash: Array U64 -> Array U64 -> Array U64;
 _update_hash = |message, hash| (
-    assert_lazy (|_| "invalid size: message", message.get_size == 16) $ |_|
-    assert_lazy (|_| "invalid size: hash", hash.get_size == 8) $ |_|
+    assert_lazy (|_| "invalid size: message", message.@size == 16) $ |_|
+    assert_lazy (|_| "invalid size: hash", hash.@size == 8) $ |_|
     let old_hash = hash;
 
     let w = Array::empty(80);

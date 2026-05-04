@@ -10,7 +10,7 @@ import Minilib.Testing.UnitTest;
 
 make_random_bytes: I64 -> I64 -> Array U8;
 make_random_bytes = |size, seed| (
-    Random::init_by_seed(seed.to_U64).generate_array(size, generate_U8).@1
+    Random::init_by_seed(seed.u64).generate_array(size, generate_U8).@1
 );
 
 test_digest: TestCase;
@@ -19,7 +19,7 @@ test_digest = (
         [
             ("empty", [], "d41d8cd98f00b204e9800998ecf8427e"),
             ("abcdefg", "abcdefg".get_bytes.pop_back, "7ac66c0f148de9519b8bd264312c4d64"),
-            ("0-255", Array::from_map(256, |i| i.to_U8), "e2c865db4162bed963bfaa9ef6ac18f0"),
+            ("0-255", Array::from_map(256, |i| i.u8), "e2c865db4162bed963bfaa9ef6ac18f0"),
             ("random_567", make_random_bytes(100000, 567), "93e1786a485e1dcfa6b46b98069f3b93")
         ],
         |(name, bytes, expected)|

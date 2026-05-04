@@ -35,13 +35,13 @@ namespace HMAC {
     // `hmac.digest(key, text)` creates a message authentication code from `key` and `text`.
     digest: Array U8 -> Array U8 -> HMAC -> Array U8;
     digest = |key, text, hmac| (
-        let ks = key.get_size;
+        let ks = key.@size;
         let b = hmac.@input_block_size;
         let k0 = if ks == b { // Step 1
             key
         } else if ks > b { // Step 2
             let temp = hmac._hash(key);
-            temp.append(Array::fill(b - temp.get_size, 0_U8))
+            temp.append(Array::fill(b - temp.@size, 0_U8))
         } else { // Step 3
             key.append(Array::fill(b - ks, 0_U8))
         };
@@ -65,7 +65,7 @@ namespace HMAC {
     _hash: Array U8 -> HMAC -> Array U8;
     _hash = |input, hmac| (
         let output = (hmac.@h)(input);
-        assert_lazy(|_| "output block size mismatch", output.get_size == hmac.@output_block_size) $ |_|
+        assert_lazy(|_| "output block size mismatch", output.@size == hmac.@output_block_size) $ |_|
         output
     );
 }
