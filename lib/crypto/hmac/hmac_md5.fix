@@ -1,8 +1,8 @@
 // An HMAC instance that uses MD5 as a hash function.
 module Minilib.Crypto.HMAC.HmacMD5;
 
-import Minilib.Crypto.HMAC;
-import Minilib.Crypto.MD5;
+import Minilib.Crypto.HMAC::{HMAC, HMAC::make};
+import Minilib.Crypto.MD5::digest;
 
 // An HMAC instance that uses MD5 as a hash function.
 hmac_md5: HMAC;

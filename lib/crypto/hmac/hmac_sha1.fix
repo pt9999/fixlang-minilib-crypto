@@ -1,8 +1,8 @@
 // An HMAC instance that uses SHA1 as a hash function.
 module Minilib.Crypto.HMAC.HmacSHA1;
 
-import Minilib.Crypto.HMAC;
-import Minilib.Crypto.SHA1;
+import Minilib.Crypto.HMAC::{HMAC, HMAC::make};
+import Minilib.Crypto.SHA1::digest;
 
 // An HMAC instance that uses SHA1 as a hash function.
 hmac_sha1: HMAC;

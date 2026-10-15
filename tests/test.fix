@@ -1,14 +1,14 @@
 module Test;
 
-import Minilib.Testing.UnitTest;
-
-import AesGcmTest;
-import AesTest;
-import HmacTest;
-import Md5Test;
-import Sha1Test;
-import Sha256Test;
-import Sha512Test;
+import AesGcmTest::main;
+import AesTest::main;
+import HmacTest::main;
+import Md5Test::main;
+import Minilib.Testing.UnitTest::{TestSuite, TestSuite::run};
+import Sha1Test::main;
+import Sha256Test::main;
+import Sha512Test::main;
+import Std::IO;
 
 testsuite: TestSuite;
 testsuite = [

@@ -6,9 +6,16 @@
 //
 module Minilib.Crypto.AES;
 
-import Minilib.Common.Assert;
-import Minilib.Encoding.Binary;
-import Minilib.Text.Hex;
+import Minilib.Common.Assert::assert_lazy;
+import Minilib.Encoding.Binary::{get_u32_be, get_u64_be, set_u64_be};
+import Std::{
+    loop, undefined, Array, I64, U32, U64, U8, Array::{@, @size, fill, from_map, set}, Functor::map, 
+    I64::{bit_and, bit_or, shift_left, shift_right}, Iterator::{fold, range}, 
+    LoopState::{break, continue}, ToI64::i64, ToU32::u32, ToU64::u64, ToU8::u8, 
+    U32::{bit_and, bit_or, bit_xor, shift_left, shift_right}, 
+    U64::{bit_and, bit_or, bit_xor, shift_left, shift_right}, 
+    U8::{bit_and, bit_or, bit_xor, shift_left, shift_right}
+};
 
 type AES = unbox struct {
     key_length: I64,    // 128, 192, 256

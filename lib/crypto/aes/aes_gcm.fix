@@ -5,10 +5,20 @@
 // https://doi.org/10.6028/NIST.SP.800-38D
 module Minilib.Crypto.AES.GCM;
 
-import Minilib.Common.Assert;
-import Minilib.Encoding.Binary;
-import Minilib.Crypto.AES;
-import Minilib.Text.Hex;
+import Minilib.Common.Assert::assert_lazy;
+import Minilib.Crypto.AES::{AES, AES::encrypt_block};
+import Minilib.Encoding.Binary::{get_u64_be, set_u64_be};
+import Minilib.Text.Hex::{ToStringHex, ToStringHex::to_string_hex};
+import Std::{
+    loop, Array, Bool, Eq, ErrMsg, FromBytes, I64, Result, ToBytes, ToString, U16, U32, U64, U8, 
+    Array::{@, @size, append, fill, from_map, get_sub, is_empty}, FromBytes::from_bytes, 
+    I64::{bit_and, bit_or, shift_left}, Iterator::{fold, map, range, to_dyn, DynIterator}, 
+    LoopState::{break, continue}, Result::{as_ok, err, ok}, ToBytes::to_bytes, ToI64::i64, ToU16::u16, 
+    ToU32::u32, ToU64::u64, ToU8::u8, U16::{bit_and, bit_xor, shift_right}, 
+    U32::{bit_xor, shift_left, shift_right}, 
+    U64::{bit_and, bit_or, bit_xor, maximum, shift_left, shift_right}, U8::bit_xor
+};
+
 //import Minilib.Common.TimeEx;
 
 // A block is a bit string of 128 bits.

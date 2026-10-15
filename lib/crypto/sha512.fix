@@ -10,8 +10,13 @@
 //
 module Minilib.Crypto.SHA512;
 
-import Minilib.Common.Assert;
-import Minilib.Encoding.Binary;
+import Minilib.Common.Assert::assert_lazy;
+import Minilib.Encoding.Binary::{get_u64_be, set_u64_be, ByteBuffer::{fill, set_u64, to_u8_array}, ByteOrder::big_endian};
+import Std::{
+    loop, Array, U64, U8, Array::{@, @size, empty, fill, from_map, push_back, set, truncate}, 
+    Iterator::{fold, range}, LoopState::{break, continue}, ToU64::u64, 
+    U64::{bit_and, bit_or, bit_xor, shift_left, shift_right}
+};
 
 // `SHA512::digest(bytes)` computes SHA-512 secure hash function of `bytes`.
 digest: Array U8 -> Array U8;

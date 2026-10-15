@@ -5,8 +5,16 @@
 //
 module Minilib.Crypto.MD5;
 
-import Minilib.Common.Assert;
-import Minilib.Encoding.Binary;
+import Minilib.Common.Assert::assert_lazy;
+import Minilib.Encoding.Binary::{
+    ByteBuffer::{fill, from_u32_array, make, set_u64, to_u32_array, to_u8_array}, 
+    ByteOrder::little_endian
+};
+import Std::{
+    loop, Array, I64, U32, U64, U8, Array::{@, @size, empty, push_back, set, truncate}, 
+    LoopState::{break, continue}, ToU32::u32, ToU64::u64, 
+    U32::{bit_and, bit_or, bit_xor, shift_left, shift_right}
+};
 
 // `MD5::digest(bytes)` computes MD5 secure hash function of `bytes`.
 digest: Array U8 -> Array U8;

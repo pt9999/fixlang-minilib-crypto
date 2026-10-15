@@ -3,6 +3,7 @@
 - fixproj.toml: Bumped `fix_version` to 1.6.0. Depends on minilib-common@0.15.0,
   minilib-binary@0.8.0, minilib-random@0.9.0, random@1.1.3.
 - Minilib.Crypto.AES.GCM: Changed `_GHASH` to `__GHASH` etc.
+- Reorganized imports using `fix edit explicit-import`.
 
 ## 0.7.1
 ### Changed

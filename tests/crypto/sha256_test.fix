@@ -1,12 +1,14 @@
 module Sha256Test;
 
-import Random;
-
-import Minilib.Crypto.SHA256;
-import Minilib.Common.RandomEx;
-import Minilib.Text.StringEx;
-import Minilib.Text.Hex;
-import Minilib.Testing.UnitTest;
+import Minilib.Common.RandomEx::{generate_U8, generate_array};
+import Minilib.Crypto.SHA256::digest;
+import Minilib.Testing.UnitTest::{assert_equal, make_test, run_test_driver, run_tests, TestCase, TestCase::empty};
+import Minilib.Text.Hex::ToStringHex::to_string_hex;
+import Random::init_by_seed;
+import Std::{
+    Array, I64, IO, String, U8, Array::{from_map, pop_back}, Monad::pure, String::get_bytes, 
+    ToString::to_string, ToU64::u64, ToU8::u8, Tuple2::@1
+};
 
 make_random_bytes: I64 -> I64 -> Array U8;
 make_random_bytes = |size, seed| (
