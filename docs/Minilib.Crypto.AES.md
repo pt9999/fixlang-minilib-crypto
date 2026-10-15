@@ -1,6 +1,6 @@
 # Minilib.Crypto.AES
 
-Defined in minilib-crypto@0.7.1
+Defined in minilib-crypto@0.8.0
 
 Advanced Encryption Standard (AES)
 

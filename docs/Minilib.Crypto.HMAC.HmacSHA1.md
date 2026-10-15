@@ -1,6 +1,6 @@
 # Minilib.Crypto.HMAC.HmacSHA1
 
-Defined in minilib-crypto@0.7.1
+Defined in minilib-crypto@0.8.0
 
 An HMAC instance that uses SHA1 as a hash function.
 
