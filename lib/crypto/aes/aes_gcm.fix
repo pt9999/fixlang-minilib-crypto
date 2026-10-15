@@ -110,7 +110,7 @@ namespace Block {
     //_mul = _clmul_u128_u128_reduce;     // a bit fast
     _mul = _mul_bitwise;              // a bit slow, but not so bad
 
-    // Multiplication operation of Blocks using bitwise-xor and reducing by the reduction polynomial `_R`.
+    // Multiplication operation of Blocks using bitwise-xor and reducing by the reduction polynomial `__R`.
     _mul_bitwise: Block -> Block -> Block;
     _mul_bitwise = |x, y| (
         let z = _zero;
@@ -119,7 +119,7 @@ namespace Block {
             (z, v, 0), |(z, v, i)|
             if i > 127 { break $ z };
             let z = if x._is_bit_set(i) { z._bit_xor(v) } else { z };
-            let v = if v._is_bit_set(127) { v._shift_right_1._bit_xor(_R) } else { v._shift_right_1 };
+            let v = if v._is_bit_set(127) { v._shift_right_1._bit_xor(__R) } else { v._shift_right_1 };
             continue $ (z, v, i + 1)
         )
     );
@@ -135,14 +135,14 @@ namespace Block {
 
     // The reduction polynomial `R = 11100011 || 0^120`.
     // This is the primitive polynomial of GF(2^128).
-    _R: Block;
-    _R = Block { hi: 0b11100001_U64.shift_left(56_U64), lo: 0_U64 };
+    __R: Block;
+    __R = Block { hi: 0b11100001_U64.shift_left(56_U64), lo: 0_U64 };
 
     // 6.4 GHASH function
 
     // Calculates GHASH() function.
-    _GHASH: Block -> DynIterator Block -> Block;
-    _GHASH = |h, xs| (
+    __GHASH: Block -> DynIterator Block -> Block;
+    __GHASH = |h, xs| (
         xs.fold(_zero, |y, x| y._bit_xor(x)._mul(h))
     );
 
@@ -159,8 +159,8 @@ namespace Block {
     // 6.5 GCTR function
 
     // Calculates GCTR() function.
-    _GCTR: (Block -> Block) -> Block -> Array U8 -> Array U8;
-    _GCTR = |cipher, initial_counter_block, x_bytes| (
+    __GCTR: (Block -> Block) -> Block -> Array U8 -> Array U8;
+    __GCTR = |cipher, initial_counter_block, x_bytes| (
         if x_bytes.is_empty { x_bytes };
         let n = (x_bytes.@size + 15) / 16;   // ceil(len(x) / 128)
         let padding = n * 16 - x_bytes.@size;
@@ -214,7 +214,7 @@ namespace GCM {
         // j0: the pre-counter block
         let j0: Block  = _get_j0(h, iv);
 
-        let c: Array U8 = _GCTR(cipher, j0._inc_32, plaintext);
+        let c: Array U8 = __GCTR(cipher, j0._inc_32, plaintext);
         let t = _get_tag(cipher, h, j0, c, auth_data, len_t);
         (c, t)
     );
@@ -229,7 +229,7 @@ namespace GCM {
             let s = 128 * ((len_iv + 127) / 128) - len_iv;
             let zeros = Array::fill((s + 64) / 8, 0_U8);    // NOTE that `s % 8 == 0`.
             let len_iv_str = _u64_to_bitstring(len_iv.u64);
-            _GHASH(h, iv.append(zeros).append(len_iv_str)._bytes_to_blocks)
+            __GHASH(h, iv.append(zeros).append(len_iv_str)._bytes_to_blocks)
         }
     );
 
@@ -243,7 +243,7 @@ namespace GCM {
         // NOTE that `u % 8 == 0` and `v % 8 == 0`.
         //eval debug_eprintln("len_a + v =" + (len_a + v).to_string);
         //eval debug_eprintln("len_c + u =" + (len_c + u).to_string);
-        let s: Block = _GHASH(h,
+        let s: Block = __GHASH(h,
             auth_data
             .append(Array::fill(v / 8, 0_U8))
             .append(c)
@@ -252,7 +252,7 @@ namespace GCM {
             .append(_u64_to_bitstring(len_c.u64))
             ._bytes_to_blocks
         );
-        let t: Array U8 = _GCTR(cipher, j0, s.to_bytes);
+        let t: Array U8 = __GCTR(cipher, j0, s.to_bytes);
         let t = if len_t < t.@size * 8 { t.get_sub(0, len_t / 8) } else { t };
         t
     );
@@ -292,7 +292,7 @@ namespace GCM {
         // j0: the pre-counter block
         let j0: Block  = _get_j0(h, iv);
         // p: plaintext
-        let p: Array U8 = _GCTR(cipher, j0._inc_32, ciphertext);
+        let p: Array U8 = __GCTR(cipher, j0._inc_32, ciphertext);
         let t = _get_tag(cipher, h, j0, ciphertext, auth_data, len_t);
         if tag != t {
             err $ "authentication tag mismatch"
